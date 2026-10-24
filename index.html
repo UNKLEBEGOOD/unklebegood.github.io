@@ -68,6 +68,14 @@
   .project-links a {
     margin-right: 18px;
   }
+  .project-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
   .status-badge {
     display: inline-block;
     background: #1f2d3d;
@@ -134,6 +142,27 @@
 
   <section class="projects">
    <h2>Featured Projects</h2>
+
+    <div class="project-card">
+      <h3>Wellspring Clinics Performance Analysis</h3>
+      <img class="project-shot" src="images/wellspring-overview.png"
+           alt="Overview page of the Wellspring clinics Power BI dashboard, showing visits, revenue, average wait and follow-up rate"
+           onerror="this.style.display='none'">
+      <p>
+        Analyzed 420 visits across six Wellspring clinics in the Abuja area to
+        understand waiting times, follow-ups and revenue. Cleaned four messy
+        tables in Python (pandas): removed duplicate records, standardized
+        consultation fees written 18 different ways, parsed dates in four
+        formats, and set impossible negative waiting times to missing instead
+        of guessing. Built a three-page Power BI dashboard and checked that the
+        totals match across every page. Found an average wait of 35.19 minutes
+        (5.19 over the 30-minute target), a 45.24% follow-up rate that ranged
+        from 54% to 32% between clinics, and ₦3.10M in total revenue.
+      </p>
+      <div class="project-links">
+        <a href="https://github.com/UNKLEBEGOOD/wellspring-clinics-analysis" target="_blank" rel="noopener">View Project →</a>
+      </div>
+    </div>
 
     <div class="project-card">
       <h3>Medical Appointment No-Show Analysis</h3>
