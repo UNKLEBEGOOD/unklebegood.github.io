@@ -24,6 +24,7 @@
     --accent: #0b6e6a;
     --accent-ink: #ffffff;
     --signal: #c2412d;
+    --c1: #0b6e6a; --c2: #2563eb; --c3: #7c3aed; --c4: #c2412d;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -35,6 +36,7 @@
       --accent: #5cc9c0;
       --accent-ink: #0f1f21;
       --signal: #ff8a73;
+      --c1: #5cc9c0; --c2: #6ea8ff; --c3: #b794ff; --c4: #ff8a73;
     }
   }
   * { box-sizing: border-box; }
@@ -81,17 +83,37 @@
   .hero p.lead { font-size: 1.25rem; color: var(--muted); max-width: 52ch; margin: 1.25rem 0 0; }
   .trace { display: block; width: 100%; height: auto; margin-top: 2.5rem; overflow: visible; }
   .trace path.line {
-    fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+    fill: none; stroke: url(#pulse); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
     stroke-dasharray: 1800; stroke-dashoffset: 1800;
     animation: draw 2.6s ease-out 0.3s forwards;
   }
   .trace path.base { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 4 6; }
-  .trace circle { fill: var(--signal); opacity: 0; animation: pop 0.4s ease-out 2.7s forwards; }
+  .trace circle { fill: var(--c4); opacity: 0; animation: pop 0.4s ease-out 2.7s forwards, dot 8s linear infinite; }
+  .trace stop { stop-color: var(--c1); animation: shift 8s linear infinite; }
+  .trace stop:nth-child(2) { animation-delay: -2s; }
+  .trace stop:nth-child(3) { animation-delay: -4s; }
+  .trace stop:nth-child(4) { animation-delay: -6s; }
+  @keyframes shift {
+    0%, 100% { stop-color: var(--c1); }
+    25% { stop-color: var(--c2); }
+    50% { stop-color: var(--c3); }
+    75% { stop-color: var(--c4); }
+  }
+  @keyframes dot {
+    0%, 100% { fill: var(--c4); }
+    25% { fill: var(--c3); }
+    50% { fill: var(--c1); }
+    75% { fill: var(--c2); }
+  }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   @keyframes pop { to { opacity: 1; } }
   @media (prefers-reduced-motion: reduce) {
     .trace path.line { animation: none; stroke-dashoffset: 0; }
     .trace circle { animation: none; opacity: 1; }
+    .trace stop { animation: none; }
+    .trace stop:nth-child(2) { stop-color: var(--c2); }
+    .trace stop:nth-child(3) { stop-color: var(--c3); }
+    .trace stop:nth-child(4) { stop-color: var(--c4); }
     html { scroll-behavior: auto; }
   }
   .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
@@ -186,6 +208,14 @@
       <p class="lead">I turn healthcare data into clear, usable findings, using the clinical experience I've built at the bedside.</p>
 
       <svg class="trace" viewBox="0 0 860 130" role="img" aria-label="A heartbeat line that turns into a rising trend line, showing the move from nursing to data analytics">
+        <defs>
+          <linearGradient id="pulse" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="860" y2="0">
+            <stop offset="0%"/>
+            <stop offset="35%"/>
+            <stop offset="70%"/>
+            <stop offset="100%"/>
+          </linearGradient>
+        </defs>
         <path class="base" d="M0 100 H860"/>
         <path class="line" d="M0 80 H110 L125 80 L140 50 L155 105 L172 18 L190 80 H300 L315 80 L330 55 L345 100 L362 30 L380 80 H470 L560 72 L640 58 L720 40 L800 20 L850 12"/>
         <circle cx="850" cy="12" r="6"/>
