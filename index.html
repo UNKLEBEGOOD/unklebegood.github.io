@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odoh Ekenedirichukwu Johnpaul. | Data Analyst Portfolio</title>
+<title>Odoh Ekenedirichukwu Johnpaul | Healthcare Data Analyst Portfolio</title>
 <meta name="description" content="Registered nurse moving into healthcare data analytics. Python, SQL, Excel and Power BI projects, including a six-clinic performance dashboard.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Odoh Ekenedirichukwu J. | Healthcare Data Analyst Portfolio">
@@ -11,242 +11,376 @@
 <meta property="og:url" content="https://unklebegood.github.io">
 <meta property="og:image" content="https://unklebegood.github.io/nursepix.jpg">
 <meta property="og:image:alt" content="Odoh Ekenedirichukwu J., Healthcare Data Analyst Portfolio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #f2f6f5;
+    --surface: #ffffff;
+    --ink: #12292b;
+    --muted: #4d6466;
+    --line: #cfdcda;
+    --accent: #0b6e6a;
+    --accent-ink: #ffffff;
+    --signal: #c2412d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1f21;
+      --surface: #152a2c;
+      --ink: #e6f0ee;
+      --muted: #9db3b1;
+      --line: #284245;
+      --accent: #5cc9c0;
+      --accent-ink: #0f1f21;
+      --signal: #ff8a73;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #0d1117;
-    color: #e6edf3;
-    line-height: 1.6;
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
   }
-  header {
-    text-align: center;
-    padding: 60px 20px 40px;
-    border-bottom: 1px solid #21262d;
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--signal);
+    outline-offset: 3px;
+    border-radius: 3px;
   }
-  header h1 { font-size: 2rem; margin-bottom: 8px; }
-  header p.tagline { color: #8b949e; font-size: 1.1rem; margin-bottom: 20px; }
-  .links a {
-    color: #58a6ff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.95rem;
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.12;
+    margin: 0;
   }
-  .links a:hover { text-decoration: underline; }
-  main { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
-  section { margin-bottom: 50px; }
-  h2 {
-    font-size: 1.4rem;
-    border-left: 4px solid #58a6ff;
-    padding-left: 12px;
-    margin-bottom: 20px;
+
+  /* Header */
+  .topbar { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .topbar strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; }
+  .topbar nav { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.95rem; }
+  .topbar nav a { color: var(--ink); text-decoration: none; }
+  .topbar nav a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* Hero */
+  .hero { padding: 3.5rem 0 3rem; border-top: 0; }
+  .who { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2rem; }
+  .who img {
+    width: 112px; height: 112px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--accent); flex: none; background: var(--surface);
   }
-  .about p { color: #c9d1d9; }
-  .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+  .who .name { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+  .who .role { color: var(--muted); font-size: 1rem; margin-top: 0.2rem; }
+  .hero h1 { font-size: clamp(2.3rem, 6.5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; max-width: 14ch; }
+  .hero p.lead { font-size: 1.25rem; color: var(--muted); max-width: 52ch; margin: 1.25rem 0 0; }
+  .trace { display: block; width: 100%; height: auto; margin-top: 2.5rem; overflow: visible; }
+  .trace path.line {
+    fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1800; stroke-dashoffset: 1800;
+    animation: draw 2.6s ease-out 0.3s forwards;
   }
-  .skills-list span {
-    background: #161b22;
-    border: 1px solid #30363d;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+  .trace path.base { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 4 6; }
+  .trace circle { fill: var(--signal); opacity: 0; animation: pop 0.4s ease-out 2.7s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes pop { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .trace path.line { animation: none; stroke-dashoffset: 0; }
+    .trace circle { animation: none; opacity: 1; }
+    html { scroll-behavior: auto; }
   }
-  .project-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 10px;
-    padding: 24px;
-    transition: border-color 0.2s;
-    margin-bottom: 20px;
+  .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+  .btn {
+    display: inline-block; padding: 0.7rem 1.25rem; border-radius: 6px; font-weight: 500;
+    text-decoration: none; border: 1.5px solid var(--accent);
   }
-  .project-card:hover { border-color: #58a6ff; }
-  .project-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
-  .project-card p { color: #8b949e; margin-bottom: 14px; }
-  .project-card a {
-    color: #58a6ff;
-    text-decoration: none;
-    font-weight: 600;
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn.ghost { color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface); }
+
+  /* Sections */
+  section { padding: 3rem 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 1.25rem; }
+  .about p { max-width: 62ch; margin: 0 0 1rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; padding: 0; list-style: none; }
+  .chips li {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 0.3rem 0.9rem; border-radius: 999px; font-size: 0.92rem;
   }
-  .project-card a:hover { text-decoration: underline; }
-  .project-links a {
-    margin-right: 18px;
+
+  /* Projects */
+  .project {
+    display: grid; grid-template-columns: 11rem 1fr; gap: 0.5rem 2rem;
+    padding: 1.75rem 0; border-top: 1px solid var(--line);
   }
+  .project:first-of-type { border-top: 0; padding-top: 0.25rem; }
+  .project .stat { font-family: "Bricolage Grotesque", sans-serif; font-size: 2.1rem; font-weight: 700; line-height: 1.05; color: var(--accent); }
+  .project .stat small { display: block; font-family: "IBM Plex Sans", sans-serif; font-size: 0.9rem; font-weight: 400; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
+  .project h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .project h3 a { color: var(--ink); text-decoration-color: var(--line); }
+  .project h3 a:hover { color: var(--accent); }
+  .project p { margin: 0 0 0.75rem; max-width: 62ch; }
   .project-shot {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-    margin-bottom: 14px;
+    display: block; width: 100%; height: auto; margin: 0.25rem 0 1rem;
+    border: 1px solid var(--line); border-radius: 6px;
   }
-  .status-badge {
-    display: inline-block;
-    background: #1f2d3d;
-    color: #58a6ff;
-    border: 1px solid #30363d;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-left: 8px;
-    vertical-align: middle;
+  .tools { font-size: 0.92rem; color: var(--muted); }
+  .links { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.95rem; margin-top: 0.5rem; }
+  .badge { display: inline-block; font-size: 0.85rem; padding: 0.1rem 0.6rem; border: 1px solid var(--signal); color: var(--signal); border-radius: 999px; margin-left: 0.5rem; vertical-align: middle; font-family: "IBM Plex Sans", sans-serif; font-weight: 500; }
+  @media (max-width: 640px) {
+    .project { grid-template-columns: 1fr; }
+    .hero { padding-top: 2.5rem; }
+    .who img { width: 88px; height: 88px; }
   }
-  footer {
-    text-align: center;
-    padding: 30px 20px;
-    color: #6e7681;
-    border-top: 1px solid #21262d;
-    font-size: 0.9rem;
-  }
+
+  /* Certifications */
+  .cert-list { list-style: none; margin: 0; padding: 0; }
+  .cert-list li { padding: 1rem 0; border-top: 1px solid var(--line); }
+  .cert-list li:first-child { border-top: 0; padding-top: 0; }
+  .cert-list strong { font-weight: 500; }
+  .cert-list span { color: var(--muted); display: block; font-size: 0.95rem; }
+  .cert-img { margin: 1rem 0 0; max-width: 460px; }
+  .cert-img img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; display: block; }
+  .cert-img figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+  code { background: var(--surface); border: 1px solid var(--line); padding: 0.05rem 0.4rem; border-radius: 4px; font-size: 0.92em; }
+
+  /* Contact + footer */
+  .contact ul { list-style: none; margin: 0; padding: 0; }
+  .contact li { padding: 0.35rem 0; }
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
 </style>
 </head>
 <body>
 
-<header>
-  <img src="nursepix.jpg" alt="Odoh Ekenedirichukwu Johnpaul."
-       style="width:150px; height:150px; border-radius:50%; object-fit:cover;
-              border:3px solid #58a6ff; margin-bottom:20px;">
-  <h1>Odoh Ekenedirichukwu J.</h1>
-  <p class="tagline">Registered Nurse (3+ yrs, Ophthalmic Nursing) → Data Analyst in training</p>
-  <div class="links">
-    <a href="https://github.com/UNKLEBEGOOD">GitHub</a> ·
-    <a href="https://linkedin.com/in/kene08">LinkedIn</a> ·
-    <a href="mailto:kennyodoson08@gmail.com">Email</a> ·
-    <a href="https://wa.me/2349037630706">WhatsApp</a>
+<header class="topbar">
+  <div class="wrap">
+    <strong>Odoh Ekenedirichukwu Johnpaul</strong>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
 <main>
+  <div class="wrap">
 
-  <section class="about">
-    <h2>About</h2>
-    <p>
-      I'm a registered nurse based in Kaduna, Nigeria, currently working at the
-      National Eye Centre with over 3+ years of clinical experience in
-      Ophthalmic Nursing. I'm transitioning into data analytics, combining
-      my clinical background with technical skills in Python, SQL, Excel,
-      Power BI, and API/ETL development to turn healthcare data into
-      actionable insight. I'm especially drawn to healthcare data analytics,
-      where clinical knowledge and data can work together to support better
-      decisions and improve patient outcomes.
-    </p>
-    <div class="skills-list">
-      <span>Python</span>
-      <span>SQL</span>
-      <span>Excel</span>
-      <span>Power BI</span>
-      <span>APIs</span>
-      <span>ETL</span>
-      <span>Pandas</span>
-      <span>Data Visualization</span>
-      <span>Statistical Analysis</span>
-    </div>
-  </section>
-
-  <section class="projects">
-   <h2>Featured Projects</h2>
-
-    <div class="project-card">
-      <h3>Wellspring Clinics Performance Analysis</h3>
-      <img class="project-shot" src="images/wellspring-overview.png"
-           alt="Overview page of the Wellspring clinics Power BI dashboard, showing visits, revenue, average wait and follow-up rate"
-           onerror="this.style.display='none'">
-      <p>
-        Analyzed 420 visits across six Wellspring clinics in the Abuja area to
-        understand waiting times, follow-ups and revenue. Cleaned four messy
-        tables in Python (pandas): removed duplicate records, standardized
-        consultation fees written 18 different ways, parsed dates in four
-        formats, and set impossible negative waiting times to missing instead
-        of guessing. Built a three-page Power BI dashboard and checked that the
-        totals match across every page. Found an average wait of 35.19 minutes
-        (5.19 over the 30-minute target), a 45.24% follow-up rate that ranged
-        from 54% to 32% between clinics, and ₦3.10M in total revenue.
-      </p>
-      <div class="project-links">
-        <a href="https://github.com/UNKLEBEGOOD/wellspring-clinics-analysis" target="_blank" rel="noopener">View Project →</a>
+    <section class="hero">
+      <div class="who">
+        <img src="nursepix.jpg" alt="Portrait of Odoh Ekenedirichukwu Johnpaul">
+        <div>
+          <div class="name">Odoh Ekenedirichukwu J.</div>
+          <div class="role">Registered Nurse (3+ yrs, Ophthalmic Nursing) → Data Analyst in training</div>
+        </div>
       </div>
-    </div>
 
-    <div class="project-card">
-      <h3>Medical Appointment No-Show Analysis</h3>
-      <p>
-        Analyzed 110,521 medical appointment records to explore patterns related
-        to missed appointments. Cleaned and analyzed the data using Python
-        (pandas), validated findings with SQL Server (T-SQL), and created an
-        interactive Power BI dashboard. Explored factors such as SMS reminders,
-        waiting time, gender, health conditions, and neighbourhood. Found an
-        overall no-show rate of 20.2%, with higher observed no-show rates among
-        patients who received SMS reminders and noticeable differences across
-        neighbourhoods.
-      </p>
-      <div class="project-links">
-        <a href="https://github.com/UNKLEBEGOOD/Medical-Noshow-Analysis" target="_blank" rel="noopener">View Project →</a>
+      <h1>From patient records to patient insight.</h1>
+      <p class="lead">I turn healthcare data into clear, usable findings, using the clinical experience I've built at the bedside.</p>
+
+      <svg class="trace" viewBox="0 0 860 130" role="img" aria-label="A heartbeat line that turns into a rising trend line, showing the move from nursing to data analytics">
+        <path class="base" d="M0 100 H860"/>
+        <path class="line" d="M0 80 H110 L125 80 L140 50 L155 105 L172 18 L190 80 H300 L315 80 L330 55 L345 100 L362 30 L380 80 H470 L560 72 L640 58 L720 40 L800 20 L850 12"/>
+        <circle cx="850" cy="12" r="6"/>
+      </svg>
+
+      <div class="hero-links">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="https://github.com/UNKLEBEGOOD">GitHub</a>
+        <a class="btn ghost" href="https://linkedin.com/in/kene08">LinkedIn</a>
+        <a class="btn ghost" href="mailto:kennyodoson08@gmail.com">Email</a>
+        <a class="btn ghost" href="https://wa.me/2349037630706">WhatsApp</a>
       </div>
-    </div>
+    </section>
 
-    <div class="project-card">
-      <h3>Healthcare_claims-and-billing_Analysis</h3>
+    <section class="about" id="about">
+      <h2>About</h2>
       <p>
-        Analyzed 70,000 billing records across 7 insurance payers to uncover
-        where revenue was being lost in the claims cycle. Built an end-to-end
-        pipeline in Python (pandas) and SQL Server (T-SQL, cross-validated),
-        then designed a Power BI dashboard to track denials and collections.
-        Found a $40M revenue gap (64.5% collection rate) driven mainly by
-        preventable submission errors — duplicate claims and missing prior
-        authorizations — rather than payer-specific issues.
+        I'm a registered nurse based in Kaduna, Nigeria, currently working at the
+        National Eye Centre with over 3 years of clinical experience in
+        Ophthalmic Nursing. I'm transitioning into data analytics, combining
+        my clinical background with technical skills in Python, SQL, Excel,
+        Power BI, and API/ETL development to turn healthcare data into
+        actionable insight.
       </p>
-      <div class="project-links">
-        <a href="https://github.com/UNKLEBEGOOD/Healthcare_claims-and-billing_Analysis" target="_blank" rel="noopener">View Project →</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h3>Social Media Impact on Student Life Analysis</h3>
       <p>
-       Analyzed 4,500 student records to explore how daily social media usage is associated
-       with sleep, academic performance, stress, and mental health. Using Python and
-       exploratory data analysis, I identified strong relationships between daily usage
-       and several student outcomes, then presented the findings through an interactive dashboard.
+        I'm especially drawn to healthcare data analytics, where clinical
+        knowledge and data can work together to support better decisions and
+        improve patient outcomes.
       </p>
-      <div class="project-links">
-        <a href="https://social-media-impact-analysis-qscyuaiwmukxamh47hjrjn.streamlit.app" target="_blank" rel="noopener">Live Dashboard →</a>
-        <a href="https://github.com/UNKLEBEGOOD/social-media-impact-analysis" target="_blank" rel="noopener">View Project →</a>
-      </div>
-    </div>
+      <ul class="chips" aria-label="Skills">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Excel</li>
+        <li>Power BI</li>
+        <li>APIs</li>
+        <li>ETL</li>
+        <li>Pandas</li>
+        <li>Data Visualization</li>
+        <li>Statistical Analysis</li>
+      </ul>
+    </section>
 
-   <div class="project-card">
-      <h3>Diabetes Risk Factor Analysis</h3>
-      <p>
-        Analyzed 768 patient records to identify the strongest clinical
-        predictors of diabetes using EDA, statistical distribution checks,
-        and a logistic regression model. Found Glucose as the dominant
-        predictor (correlation 0.50), validated across three independent
-        methods — visual, correlation, and model coefficients.
-      </p>
-      <a href="https://github.com/UNKLEBEGOOD/diabetes-risk-analysis">View Project →</a>
-    </div>
+    <section id="projects">
+      <h2>Featured projects</h2>
 
-    <div class="project-card">
-      <h3>WHO Health Data ETL & Dashboard <span class="status-badge">In Progress</span></h3>
-      <p>
-        Building an end-to-end ETL pipeline that extracts health indicator data
-        from the WHO Global Health Observatory API, transforms and cleans it
-        with Python, and loads it for visualization on an interactive dashboard —
-        turning global health data into a tool for quick, actionable comparison
-        across countries and indicators.
-      </p>
-    </div>
+      <article class="project">
+        <div class="stat">35.19 min<small>average wait, 5.19 over the 30-minute target</small></div>
+        <div>
+          <h3><a href="https://github.com/UNKLEBEGOOD/wellspring-clinics-analysis" target="_blank" rel="noopener">Wellspring Clinics Performance Analysis</a></h3>
+          <p>
+            Analyzed 420 visits across six Wellspring clinics in the Abuja area to
+            understand waiting times, follow-ups and revenue. Cleaned four messy
+            tables in Python (pandas): removed duplicate records, standardized
+            consultation fees written 18 different ways, parsed dates in four
+            formats, and set impossible negative waiting times to missing instead
+            of guessing. Built a three-page Power BI dashboard and checked that the
+            totals match across every page. Found an average wait of 35.19 minutes
+            (5.19 over the 30-minute target), a 45.24% follow-up rate that ranged
+            from 54% to 32% between clinics, and ₦3.10M in total revenue.
+          </p>
+          <img class="project-shot" src="images/wellspring-overview.png"
+               alt="Overview page of the Wellspring clinics Power BI dashboard, showing visits, revenue, average wait and follow-up rate"
+               onerror="this.style.display='none'">
+          <div class="tools">Python, pandas, Power BI, DAX</div>
+          <div class="links"><a href="https://github.com/UNKLEBEGOOD/wellspring-clinics-analysis" target="_blank" rel="noopener">View project</a></div>
+        </div>
+      </article>
 
-  </section>
+      <article class="project">
+        <div class="stat">20.2%<small>overall no-show rate across 110,521 appointments</small></div>
+        <div>
+          <h3><a href="https://github.com/UNKLEBEGOOD/Medical-Noshow-Analysis" target="_blank" rel="noopener">Medical Appointment No-Show Analysis</a></h3>
+          <p>
+            Analyzed 110,521 medical appointment records to explore patterns related
+            to missed appointments. Cleaned and analyzed the data using Python
+            (pandas), validated findings with SQL Server (T-SQL), and created an
+            interactive Power BI dashboard. Explored factors such as SMS reminders,
+            waiting time, gender, health conditions, and neighbourhood. Found an
+            overall no-show rate of 20.2%, with higher observed no-show rates among
+            patients who received SMS reminders and noticeable differences across
+            neighbourhoods.
+          </p>
+          <div class="tools">Python, SQL Server (T-SQL), Power BI</div>
+          <div class="links"><a href="https://github.com/UNKLEBEGOOD/Medical-Noshow-Analysis" target="_blank" rel="noopener">View project</a></div>
+        </div>
+      </article>
 
+      <article class="project">
+        <div class="stat">$40M<small>revenue gap, 64.5% collection rate</small></div>
+        <div>
+          <h3><a href="https://github.com/UNKLEBEGOOD/Healthcare_claims-and-billing_Analysis" target="_blank" rel="noopener">Healthcare Claims and Billing Analysis</a></h3>
+          <p>
+            Analyzed 70,000 billing records across 7 insurance payers to uncover
+            where revenue was being lost in the claims cycle. Built an end-to-end
+            pipeline in Python (pandas) and SQL Server (T-SQL, cross-validated),
+            then designed a Power BI dashboard to track denials and collections.
+            Found a $40M revenue gap (64.5% collection rate) driven mainly by
+            preventable submission errors, such as duplicate claims and missing prior
+            authorizations, rather than payer-specific issues.
+          </p>
+          <div class="tools">Python, SQL Server (T-SQL), Power BI</div>
+          <div class="links"><a href="https://github.com/UNKLEBEGOOD/Healthcare_claims-and-billing_Analysis" target="_blank" rel="noopener">View project</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="stat">4,500<small>student records analyzed</small></div>
+        <div>
+          <h3><a href="https://github.com/UNKLEBEGOOD/social-media-impact-analysis" target="_blank" rel="noopener">Social Media Impact on Student Life Analysis</a></h3>
+          <p>
+            Analyzed 4,500 student records to explore how daily social media usage is associated
+            with sleep, academic performance, stress, and mental health. Using Python and
+            exploratory data analysis, I identified strong relationships between daily usage
+            and several student outcomes, then presented the findings through an interactive dashboard.
+          </p>
+          <div class="tools">Python, EDA, Streamlit</div>
+          <div class="links">
+            <a href="https://social-media-impact-analysis-qscyuaiwmukxamh47hjrjn.streamlit.app" target="_blank" rel="noopener">Live dashboard</a>
+            <a href="https://github.com/UNKLEBEGOOD/social-media-impact-analysis" target="_blank" rel="noopener">View project</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="stat">0.50<small>correlation of glucose with diabetes</small></div>
+        <div>
+          <h3><a href="https://github.com/UNKLEBEGOOD/diabetes-risk-analysis" target="_blank" rel="noopener">Diabetes Risk Factor Analysis</a></h3>
+          <p>
+            Analyzed 768 patient records to identify the strongest clinical
+            predictors of diabetes using EDA, statistical distribution checks,
+            and a logistic regression model. Found Glucose as the dominant
+            predictor (correlation 0.50), validated across three independent
+            methods: visual, correlation, and model coefficients.
+          </p>
+          <div class="tools">Python, EDA, logistic regression</div>
+          <div class="links"><a href="https://github.com/UNKLEBEGOOD/diabetes-risk-analysis" target="_blank" rel="noopener">View project</a></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="stat">WHO<small>Global Health Observatory data</small></div>
+        <div>
+          <h3>WHO Health Data ETL &amp; Dashboard <span class="badge">In progress</span></h3>
+          <p>
+            Building an end-to-end ETL pipeline that extracts health indicator data
+            from the WHO Global Health Observatory API, transforms and cleans it
+            with Python, and loads it for visualization on an interactive dashboard,
+            turning global health data into a tool for quick, actionable comparison
+            across countries and indicators.
+          </p>
+          <div class="tools">Python, APIs, ETL</div>
+        </div>
+      </article>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications and education</h2>
+      <ul class="cert-list">
+        <li>
+          <strong>Data Analysis, Certificate of Completion</strong>
+          <span>TechCrush (accredited by the American Council of Training and Development, USA). 15-week Bootcamp Scholarship, issued 22 October 2026. Certificate ID: <code>TEC-3739D8B5</code></span>
+          <figure class="cert-img">
+            <a href="techcrush-data-analysis.jpeg">
+              <img src="techcrush-data-analysis.jpeg" alt="TechCrush Certificate of Completion in Data Analysis, issued 22 October 2026" loading="lazy">
+            </a>
+            <figcaption>Select the image to view it full size.</figcaption>
+          </figure>
+        </li>
+        <li>
+          <strong>Medical Virtual Assistant (MVA) Training</strong>
+          <span>VAA Global Academy, April 2026</span>
+        </li>
+        <li>
+          <strong>B.NSc Nursing, Registered Nurse</strong>
+          <span>Ebonyi State University, Abakaliki, Nigeria. Graduated 2020.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Get in touch</h2>
+      <p>If you'd like to talk about healthcare data, message me on LinkedIn or send an email.</p>
+      <ul>
+        <li>GitHub: <a href="https://github.com/UNKLEBEGOOD">github.com/UNKLEBEGOOD</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/kene08">linkedin.com/in/kene08</a></li>
+        <li>Email: <a href="mailto:kennyodoson08@gmail.com">kennyodoson08@gmail.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/2349037630706">Send a message</a></li>
+      </ul>
+    </section>
+
+  </div>
 </main>
 
 <footer>
-  © 2026 Odoh Ekenedirichukwu Johnpaul. · Built with GitHub Pages
+  <div class="wrap">© 2026 Odoh Ekenedirichukwu Johnpaul. Built with GitHub Pages.</div>
 </footer>
 
 </body>
